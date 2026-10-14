@@ -115,3 +115,45 @@ func TestCubeBMoves(t *testing.T) {
 
 	testDefaultCube(t, c)
 }
+
+func TestCubeRMoves(t *testing.T) {
+	c := testCube(t)
+	err := c.rotate(R)
+	if err != nil {
+		t.Fatalf("Rotation error: %s", err)
+	}
+
+	testFace(t, c.Faces[RIGHT], allRed)
+	testFace(t, c.Faces[UP], [9]Color{White, White, Green, White, White, Green, White, White, Green})
+	testFace(t, c.Faces[FRONT], [9]Color{Green, Green, Yellow, Green, Green, Yellow, Green, Green, Yellow})
+	testFace(t, c.Faces[DOWN], [9]Color{Yellow, Yellow, Blue, Yellow, Yellow, Blue, Yellow, Yellow, Blue})
+	testFace(t, c.Faces[BACK], [9]Color{White, Blue, Blue, White, Blue, Blue, White, Blue, Blue})
+
+	err = c.rotate(Rp)
+	if err != nil {
+		t.Fatalf("Rotation error: %s", err)
+	}
+
+	testDefaultCube(t, c)
+}
+
+func TestCubeLMoves(t *testing.T) {
+	c := testCube(t)
+	err := c.rotate(L)
+	if err != nil {
+		t.Fatalf("Rotation error: %s", err)
+	}
+
+	testFace(t, c.Faces[LEFT], allOrange)
+	testFace(t, c.Faces[UP], [9]Color{Blue, White, White, Blue, White, White, Blue, White, White})
+	testFace(t, c.Faces[FRONT], [9]Color{White, Green, Green, White, Green, Green, White, Green, Green})
+	testFace(t, c.Faces[DOWN], [9]Color{Green, Yellow, Yellow, Green, Yellow, Yellow, Green, Yellow, Yellow})
+	testFace(t, c.Faces[BACK], [9]Color{Blue, Blue, Yellow, Blue, Blue, Yellow, Blue, Blue, Yellow})
+
+	err = c.rotate(Lp)
+	if err != nil {
+		t.Fatalf("Rotation error: %s", err)
+	}
+
+	testDefaultCube(t, c)
+}
