@@ -3,7 +3,8 @@ package cube
 type face [9]Color
 
 type Cube struct {
-	Faces [6]face
+	Scramble string
+	Faces    [6]face
 }
 
 func New() *Cube {
@@ -17,12 +18,4 @@ func New() *Cube {
 	c.Faces[int(RIGHT)] = [9]Color{Red, Red, Red, Red, Red, Red, Red, Red, Red}
 
 	return c
-}
-
-func (c *Cube) Scamble() {
-	panic("not implemented yet")
-}
-
-func (c *Cube) ScambleFrom(s string) {
-	panic("not implemented yet")
 }

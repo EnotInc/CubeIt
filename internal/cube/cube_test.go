@@ -187,3 +187,63 @@ func TestLeftPifPaf(t *testing.T) {
 	testFace(t, c.Faces[BACK], [9]Color{Orange, Orange, Blue, Blue, Blue, Blue, Blue, Blue, Blue})
 	testFace(t, c.Faces[LEFT], [9]Color{White, Orange, Orange, Orange, Orange, Blue, Orange, Orange, White})
 }
+
+func TestFrontPifPaf(t *testing.T) {
+	c := testCube(t)
+	c.rotate(L)
+	c.rotate(F)
+	c.rotate(Lp)
+	c.rotate(Fp)
+
+	testFace(t, c.Faces[UP], [9]Color{White, White, White, Green, White, White, Blue, White, White})
+	testFace(t, c.Faces[FRONT], [9]Color{White, Green, Green, White, Green, Green, Red, Green, Green})
+	testFace(t, c.Faces[RIGHT], [9]Color{Red, Red, Red, Red, Red, Red, Yellow, Red, Red})
+	testFace(t, c.Faces[DOWN], [9]Color{Yellow, Orange, Orange, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow})
+	testFace(t, c.Faces[BACK], [9]Color{Blue, Blue, Orange, Blue, Blue, Blue, Blue, Blue, Blue})
+	testFace(t, c.Faces[LEFT], [9]Color{Green, Yellow, Orange, Orange, Orange, Orange, Orange, Orange, Green})
+}
+
+func TestBackPifPaf(t *testing.T) {
+	c := testCube(t)
+	c.rotate(L)
+	c.rotate(B)
+	c.rotate(Lp)
+	c.rotate(Bp)
+
+	testFace(t, c.Faces[UP], [9]Color{White, Orange, Orange, White, White, White, White, White, White})
+	testFace(t, c.Faces[FRONT], [9]Color{Green, Green, Green, Green, Green, Green, Orange, Green, Green})
+	testFace(t, c.Faces[RIGHT], [9]Color{Red, Red, White, Red, Red, Red, Red, Red, Red})
+	testFace(t, c.Faces[DOWN], [9]Color{Yellow, Yellow, Yellow, Blue, Yellow, Yellow, Green, Yellow, Yellow})
+	testFace(t, c.Faces[BACK], [9]Color{Blue, Blue, Red, Blue, Blue, Yellow, Blue, Blue, Yellow})
+	testFace(t, c.Faces[LEFT], [9]Color{Blue, Orange, Orange, Orange, Orange, Orange, Orange, White, Blue})
+}
+
+func TestFrontPifPaf2(t *testing.T) {
+	c := testCube(t)
+	c.rotate(R)
+	c.rotate(F)
+	c.rotate(Rp)
+	c.rotate(Fp)
+
+	testFace(t, c.Faces[UP], [9]Color{White, White, White, White, White, White, Red, Red, White})
+	testFace(t, c.Faces[FRONT], [9]Color{Green, Green, Orange, Green, Green, Yellow, Green, Green, Yellow})
+	testFace(t, c.Faces[RIGHT], [9]Color{Green, Red, Red, Red, Red, Red, Red, White, Green})
+	testFace(t, c.Faces[DOWN], [9]Color{Yellow, Yellow, Blue, Yellow, Yellow, Green, Yellow, Yellow, Yellow})
+	testFace(t, c.Faces[BACK], [9]Color{Blue, Blue, Blue, Blue, Blue, Blue, Red, Blue, Blue})
+	testFace(t, c.Faces[LEFT], [9]Color{Orange, Orange, White, Orange, Orange, Orange, Orange, Orange, Orange})
+}
+
+func TestBackPifPaf2(t *testing.T) {
+	c := testCube(t)
+	c.rotate(R)
+	c.rotate(B)
+	c.rotate(Rp)
+	c.rotate(Bp)
+
+	testFace(t, c.Faces[UP], [9]Color{White, White, Green, White, White, Blue, White, White, White})
+	testFace(t, c.Faces[FRONT], [9]Color{Green, Green, Red, Green, Green, Green, Green, Green, Green})
+	testFace(t, c.Faces[RIGHT], [9]Color{Blue, Yellow, Red, Red, Red, Red, Red, Red, Blue})
+	testFace(t, c.Faces[DOWN], [9]Color{Yellow, Yellow, Yellow, Yellow, Yellow, Yellow, Red, Red, Yellow})
+	testFace(t, c.Faces[BACK], [9]Color{White, Blue, Blue, White, Blue, Blue, Orange, Blue, Blue})
+	testFace(t, c.Faces[LEFT], [9]Color{Orange, Orange, Orange, Orange, Orange, Orange, Yellow, Orange, Orange})
+}

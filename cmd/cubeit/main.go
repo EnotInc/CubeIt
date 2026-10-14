@@ -7,5 +7,6 @@ import (
 
 func main() {
 	c := cube.New()
+	c.Scamble()
 	renderer.Render(c)
 }

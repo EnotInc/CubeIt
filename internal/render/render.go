@@ -24,7 +24,10 @@ const (
 )
 
 func Render(c *cube.Cube) {
-	var image strings.Builder
+	var r strings.Builder
+
+	scramble := fmt.Sprintf(" %s\n\n", c.Scramble)
+	r.WriteString(scramble)
 
 	for i := range 3 {
 		for row := range 3 {
@@ -33,7 +36,7 @@ func Render(c *cube.Cube) {
 				up := [3]cube.Color{c.Faces[cube.UP][row*3], c.Faces[cube.UP][row*3+1], c.Faces[cube.UP][row*3+2]}
 
 				line := fmt.Sprintf("%s  %s\n", empty, fl(up))
-				image.WriteString(line)
+				r.WriteString(line)
 			case 1:
 				left := [3]cube.Color{c.Faces[cube.LEFT][row*3], c.Faces[cube.LEFT][row*3+1], c.Faces[cube.LEFT][row*3+2]}
 				front := [3]cube.Color{c.Faces[cube.FRONT][row*3], c.Faces[cube.FRONT][row*3+1], c.Faces[cube.FRONT][row*3+2]}
@@ -41,19 +44,19 @@ func Render(c *cube.Cube) {
 				back := [3]cube.Color{c.Faces[cube.BACK][row*3], c.Faces[cube.BACK][row*3+1], c.Faces[cube.BACK][row*3+2]}
 
 				line := fmt.Sprintf("%s  %s  %s  %s\n", fl(left), fl(front), fl(right), fl(back))
-				image.WriteString(line)
+				r.WriteString(line)
 
 			case 2:
 				down := [3]cube.Color{c.Faces[cube.DOWN][row*3], c.Faces[cube.DOWN][row*3+1], c.Faces[cube.DOWN][row*3+2]}
 
 				line := fmt.Sprintf("%s  %s\n", empty, fl(down))
-				image.WriteString(line)
+				r.WriteString(line)
 			}
 		}
-		image.WriteString("\n")
+		r.WriteString("\n")
 	}
 
-	fmt.Print(image.String())
+	fmt.Print(r.String())
 }
 
 var colors = map[cube.Color]string{
