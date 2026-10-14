@@ -1,4 +1,4 @@
-package internal
+package cube
 
 type face [9]color
 
@@ -9,8 +9,8 @@ type Cube struct {
 func New() *Cube {
 	c := &Cube{}
 
-	c.faces[int(up)] = [9]color{yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow}
-	c.faces[int(down)] = [9]color{white, white, white, white, white, white, white, white, white}
+	c.faces[int(up)] = [9]color{white, white, white, white, white, white, white, white, white}
+	c.faces[int(down)] = [9]color{yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow}
 	c.faces[int(front)] = [9]color{green, green, green, green, green, green, green, green, green}
 	c.faces[int(back)] = [9]color{blue, blue, blue, blue, blue, blue, blue, blue, blue}
 	c.faces[int(left)] = [9]color{orange, orange, orange, orange, orange, orange, orange, orange, orange}

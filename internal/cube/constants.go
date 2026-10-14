@@ -1,15 +1,14 @@
-package internal
+package cube
 
-type color int
+type color string
 
 const (
-	_ color = iota
-	yellow
-	white
-	green
-	orange
-	blue
-	red
+	yellow = "y"
+	white  = "w"
+	green  = "g"
+	orange = "o"
+	blue   = "b"
+	red    = "r"
 )
 
 type dir int
@@ -24,23 +23,21 @@ const (
 	back
 )
 
-type Move int
+type Move string
 
 const (
-	_ Move = iota
 	// Up, Down, Front, Back, Right, Left
 	// p - stands for prime (counterclockwise)
-
-	U
-	Up
-	D
-	Dp
-	F
-	Fp
-	B
-	Bp
-	R
-	Rp
-	L
-	Lp
+	U  = "U"
+	Up = "U'"
+	D  = "D"
+	Dp = "D'"
+	F  = "F"
+	Fp = "F'"
+	Ba = "B"
+	Bp = "B'"
+	R  = "R"
+	Rp = "R'"
+	L  = "L"
+	Lp = "L'"
 )
