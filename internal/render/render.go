@@ -8,12 +8,12 @@ import (
 )
 
 const (
-	color_white  = "\033[37m"
-	color_yellow = "\033[33m"
-	color_green  = "\033[32m"
-	color_blue   = "\033[34m"
-	color_orange = "\033[38;5;208m"
-	color_red    = "\033[31m"
+	color_white  = "\033[38;2;255;255;255m"
+	color_yellow = "\033[38;2;255;255;0m"
+	color_green  = "\033[38;2;0;255;0m"
+	color_blue   = "\033[38;2;0;0;255m"
+	color_orange = "\033[38;2;255;165;0m"
+	color_red    = "\033[38;2;255;0;0m"
 	color_reset  = "\033[0m"
 )
 
@@ -35,7 +35,7 @@ func Render(c *cube.Cube) {
 			case 0:
 				up := [3]cube.Color{c.Faces[cube.UP][row*3], c.Faces[cube.UP][row*3+1], c.Faces[cube.UP][row*3+2]}
 
-				line := fmt.Sprintf("%s  %s\n", empty, fl(up))
+				line := fmt.Sprintf(" %s  %s\n", empty, fl(up))
 				r.WriteString(line)
 			case 1:
 				left := [3]cube.Color{c.Faces[cube.LEFT][row*3], c.Faces[cube.LEFT][row*3+1], c.Faces[cube.LEFT][row*3+2]}
@@ -43,13 +43,13 @@ func Render(c *cube.Cube) {
 				right := [3]cube.Color{c.Faces[cube.RIGHT][row*3], c.Faces[cube.RIGHT][row*3+1], c.Faces[cube.RIGHT][row*3+2]}
 				back := [3]cube.Color{c.Faces[cube.BACK][row*3], c.Faces[cube.BACK][row*3+1], c.Faces[cube.BACK][row*3+2]}
 
-				line := fmt.Sprintf("%s  %s  %s  %s\n", fl(left), fl(front), fl(right), fl(back))
+				line := fmt.Sprintf(" %s  %s  %s  %s\n", fl(left), fl(front), fl(right), fl(back))
 				r.WriteString(line)
 
 			case 2:
 				down := [3]cube.Color{c.Faces[cube.DOWN][row*3], c.Faces[cube.DOWN][row*3+1], c.Faces[cube.DOWN][row*3+2]}
 
-				line := fmt.Sprintf("%s  %s\n", empty, fl(down))
+				line := fmt.Sprintf(" %s  %s\n", empty, fl(down))
 				r.WriteString(line)
 			}
 		}
