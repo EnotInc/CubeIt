@@ -1,6 +1,6 @@
 # CubeIt
 
-Simple TUI scambler for rubic's cubes
+Simple TUI scambler for Rubik's cube
 
 ## Usage
 ```shell
