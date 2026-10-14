@@ -1,17 +1,27 @@
 package cube
 
 import (
+	"fmt"
 	"math/rand/v2"
 	"strings"
 )
 
-func (c *Cube) Scamble() {
+func (c *Cube) Scamble() error {
 	c.Scramble = getRandomString()
-	c.performScramble()
+	err := c.performScramble()
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
-func (c *Cube) ScambleFrom(s string) {
-	panic("not implemented yet")
+func (c *Cube) ScambleFrom(s string) error {
+	c.Scramble = s
+	err := c.performScramble()
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func getRandomString() string {
@@ -38,8 +48,9 @@ func getRandomString() string {
 
 var moves = []string{"U", "U2", "U'", "D", "D2", "D'", "F", "F2", "F'", "B", "B2", "B'", "L", "L2", "L'", "R", "R2", "R'"}
 
-func (c *Cube) performScramble() {
-	_moves := strings.SplitSeq(c.Scramble, " ")
+func (c *Cube) performScramble() error {
+	scramble := strings.TrimSpace(c.Scramble)
+	_moves := strings.SplitSeq(scramble, " ")
 
 	for m := range _moves {
 		switch m {
@@ -91,6 +102,10 @@ func (c *Cube) performScramble() {
 			c.rotate(R)
 		case "R'":
 			c.rotate(Rp)
+
+		default:
+			return fmt.Errorf("unknown move: %s", m)
 		}
 	}
+	return nil
 }
