@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"github.com/enotinc/cubeit/internal/cube"
+	renderer "github.com/enotinc/cubeit/internal/render"
+)
 
 func main() {
-	fmt.Print("hello, CubeIt!")
+	c := cube.New()
+	renderer.Render(c)
 }
