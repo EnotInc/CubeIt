@@ -34,7 +34,7 @@ const (
 	Dp = "D'"
 	F  = "F"
 	Fp = "F'"
-	Ba = "B"
+	B  = "B"
 	Bp = "B'"
 	R  = "R"
 	Rp = "R'"
