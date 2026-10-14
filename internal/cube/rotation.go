@@ -119,24 +119,24 @@ func (c *Cube) rotate(m Move) error {
 		c.Faces[FRONT][5] = old[DOWN][5]
 		c.Faces[FRONT][8] = old[DOWN][8]
 
-		c.Faces[DOWN][2] = old[BACK][0]
+		c.Faces[DOWN][8] = old[BACK][0]
 		c.Faces[DOWN][5] = old[BACK][3]
-		c.Faces[DOWN][8] = old[BACK][6]
+		c.Faces[DOWN][2] = old[BACK][6]
 
-		c.Faces[BACK][0] = old[UP][2]
+		c.Faces[BACK][0] = old[UP][8]
 		c.Faces[BACK][3] = old[UP][5]
-		c.Faces[BACK][6] = old[UP][8]
+		c.Faces[BACK][6] = old[UP][2]
 
 	case Rp:
 		c.Faces[RIGHT] = matrixCounterClockwise(old[RIGHT])
 
-		c.Faces[UP][2] = old[BACK][0]
+		c.Faces[UP][8] = old[BACK][0]
 		c.Faces[UP][5] = old[BACK][3]
-		c.Faces[UP][8] = old[BACK][6]
+		c.Faces[UP][2] = old[BACK][6]
 
-		c.Faces[BACK][0] = old[DOWN][2]
-		c.Faces[BACK][3] = old[DOWN][5]
 		c.Faces[BACK][6] = old[DOWN][8]
+		c.Faces[BACK][3] = old[DOWN][5]
+		c.Faces[BACK][0] = old[DOWN][2]
 
 		c.Faces[DOWN][2] = old[FRONT][2]
 		c.Faces[DOWN][5] = old[FRONT][5]
@@ -149,13 +149,13 @@ func (c *Cube) rotate(m Move) error {
 	case L:
 		c.Faces[LEFT] = matrixClockwise(old[LEFT])
 
-		c.Faces[UP][0] = old[BACK][2]
+		c.Faces[UP][0] = old[BACK][8]
 		c.Faces[UP][3] = old[BACK][5]
-		c.Faces[UP][6] = old[BACK][8]
+		c.Faces[UP][6] = old[BACK][2]
 
-		c.Faces[BACK][2] = old[DOWN][0]
+		c.Faces[BACK][8] = old[DOWN][0]
 		c.Faces[BACK][5] = old[DOWN][3]
-		c.Faces[BACK][8] = old[DOWN][6]
+		c.Faces[BACK][2] = old[DOWN][6]
 
 		c.Faces[DOWN][0] = old[FRONT][0]
 		c.Faces[DOWN][3] = old[FRONT][3]
@@ -176,13 +176,13 @@ func (c *Cube) rotate(m Move) error {
 		c.Faces[FRONT][3] = old[DOWN][3]
 		c.Faces[FRONT][6] = old[DOWN][6]
 
-		c.Faces[DOWN][0] = old[BACK][2]
+		c.Faces[DOWN][0] = old[BACK][8]
 		c.Faces[DOWN][3] = old[BACK][5]
-		c.Faces[DOWN][6] = old[BACK][8]
+		c.Faces[DOWN][6] = old[BACK][2]
 
-		c.Faces[BACK][2] = old[UP][0]
+		c.Faces[BACK][8] = old[UP][0]
 		c.Faces[BACK][5] = old[UP][3]
-		c.Faces[BACK][8] = old[UP][6]
+		c.Faces[BACK][2] = old[UP][6]
 
 	default:
 		return fmt.Errorf("Unknown move %+v", m)

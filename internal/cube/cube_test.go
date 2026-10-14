@@ -157,3 +157,33 @@ func TestCubeLMoves(t *testing.T) {
 
 	testDefaultCube(t, c)
 }
+
+func TestRightPifPaf(t *testing.T) {
+	c := testCube(t)
+	c.rotate(R)
+	c.rotate(U)
+	c.rotate(Rp)
+	c.rotate(Up)
+
+	testFace(t, c.Faces[UP], [9]Color{White, White, Orange, White, White, Green, White, White, Green})
+	testFace(t, c.Faces[FRONT], [9]Color{Green, Green, Yellow, Green, Green, White, Green, Green, Green})
+	testFace(t, c.Faces[RIGHT], [9]Color{Red, Red, White, Blue, Red, Red, White, Red, Red})
+	testFace(t, c.Faces[DOWN], [9]Color{Yellow, Yellow, Red, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow})
+	testFace(t, c.Faces[BACK], [9]Color{Blue, Red, Red, Blue, Blue, Blue, Blue, Blue, Blue})
+	testFace(t, c.Faces[LEFT], [9]Color{Blue, Orange, Orange, Orange, Orange, Orange, Orange, Orange, Orange})
+}
+
+func TestLeftPifPaf(t *testing.T) {
+	c := testCube(t)
+	c.rotate(Lp)
+	c.rotate(Up)
+	c.rotate(L)
+	c.rotate(U)
+
+	testFace(t, c.Faces[UP], [9]Color{Red, White, White, Green, White, White, Green, White, White})
+	testFace(t, c.Faces[FRONT], [9]Color{Yellow, Green, Green, White, Green, Green, Green, Green, Green})
+	testFace(t, c.Faces[RIGHT], [9]Color{Red, Red, Blue, Red, Red, Red, Red, Red, Red})
+	testFace(t, c.Faces[DOWN], [9]Color{Orange, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow})
+	testFace(t, c.Faces[BACK], [9]Color{Orange, Orange, Blue, Blue, Blue, Blue, Blue, Blue, Blue})
+	testFace(t, c.Faces[LEFT], [9]Color{White, Orange, Orange, Orange, Orange, Blue, Orange, Orange, White})
+}
