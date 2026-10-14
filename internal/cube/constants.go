@@ -1,6 +1,6 @@
 package cube
 
-type color string
+type Color string
 
 const (
 	Yellow = "y"
