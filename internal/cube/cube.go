@@ -3,18 +3,18 @@ package cube
 type face [9]color
 
 type Cube struct {
-	faces [6]face
+	Faces [6]face
 }
 
 func New() *Cube {
 	c := &Cube{}
 
-	c.faces[int(up)] = [9]color{white, white, white, white, white, white, white, white, white}
-	c.faces[int(down)] = [9]color{yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow}
-	c.faces[int(front)] = [9]color{green, green, green, green, green, green, green, green, green}
-	c.faces[int(back)] = [9]color{blue, blue, blue, blue, blue, blue, blue, blue, blue}
-	c.faces[int(left)] = [9]color{orange, orange, orange, orange, orange, orange, orange, orange, orange}
-	c.faces[int(right)] = [9]color{red, red, red, red, red, red, red, red, red}
+	c.Faces[int(UP)] = [9]color{White, White, White, White, White, White, White, White, White}
+	c.Faces[int(DOWN)] = [9]color{Yellow, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow}
+	c.Faces[int(FRONT)] = [9]color{Green, Green, Green, Green, Green, Green, Green, Green, Green}
+	c.Faces[int(BACK)] = [9]color{Blue, Blue, Blue, Blue, Blue, Blue, Blue, Blue, Blue}
+	c.Faces[int(LEFT)] = [9]color{Orange, Orange, Orange, Orange, Orange, Orange, Orange, Orange, Orange}
+	c.Faces[int(RIGHT)] = [9]color{Red, Red, Red, Red, Red, Red, Red, Red, Red}
 
 	return c
 }

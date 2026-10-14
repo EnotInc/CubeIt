@@ -4,12 +4,12 @@ import (
 	"testing"
 )
 
-var allYellow = [9]color{yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow}
-var allWhite = [9]color{white, white, white, white, white, white, white, white, white}
-var allGreen = [9]color{green, green, green, green, green, green, green, green, green}
-var allOrange = [9]color{orange, orange, orange, orange, orange, orange, orange, orange, orange}
-var allBlue = [9]color{blue, blue, blue, blue, blue, blue, blue, blue, blue}
-var allRed = [9]color{red, red, red, red, red, red, red, red, red}
+var allYellow = [9]color{Yellow, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow}
+var allWhite = [9]color{White, White, White, White, White, White, White, White, White}
+var allGreen = [9]color{Green, Green, Green, Green, Green, Green, Green, Green, Green}
+var allOrange = [9]color{Orange, Orange, Orange, Orange, Orange, Orange, Orange, Orange, Orange}
+var allBlue = [9]color{Blue, Blue, Blue, Blue, Blue, Blue, Blue, Blue, Blue}
+var allRed = [9]color{Red, Red, Red, Red, Red, Red, Red, Red, Red}
 
 func testCube(t *testing.T) *Cube {
 	c := New()
@@ -18,12 +18,12 @@ func testCube(t *testing.T) *Cube {
 }
 
 func testDefaultCube(t *testing.T, c *Cube) {
-	testFace(t, c.faces[up], allWhite)
-	testFace(t, c.faces[down], allYellow)
-	testFace(t, c.faces[front], allGreen)
-	testFace(t, c.faces[back], allBlue)
-	testFace(t, c.faces[left], allOrange)
-	testFace(t, c.faces[right], allRed)
+	testFace(t, c.Faces[UP], allWhite)
+	testFace(t, c.Faces[DOWN], allYellow)
+	testFace(t, c.Faces[FRONT], allGreen)
+	testFace(t, c.Faces[BACK], allBlue)
+	testFace(t, c.Faces[LEFT], allOrange)
+	testFace(t, c.Faces[RIGHT], allRed)
 }
 
 func TestCubeUMoves(t *testing.T) {
@@ -33,11 +33,11 @@ func TestCubeUMoves(t *testing.T) {
 		t.Errorf("Rotation error: %s", err)
 	}
 
-	testFace(t, c.faces[up], [9]color{white, white, white, white, white, white, white, white, white})
-	testFace(t, c.faces[front], [9]color{red, red, red, green, green, green, green, green, green})
-	testFace(t, c.faces[right], [9]color{blue, blue, blue, red, red, red, red, red, red})
-	testFace(t, c.faces[back], [9]color{orange, orange, orange, blue, blue, blue, blue, blue, blue})
-	testFace(t, c.faces[left], [9]color{green, green, green, orange, orange, orange, orange, orange, orange})
+	testFace(t, c.Faces[UP], [9]color{White, White, White, White, White, White, White, White, White})
+	testFace(t, c.Faces[FRONT], [9]color{Red, Red, Red, Green, Green, Green, Green, Green, Green})
+	testFace(t, c.Faces[RIGHT], [9]color{Blue, Blue, Blue, Red, Red, Red, Red, Red, Red})
+	testFace(t, c.Faces[BACK], [9]color{Orange, Orange, Orange, Blue, Blue, Blue, Blue, Blue, Blue})
+	testFace(t, c.Faces[LEFT], [9]color{Green, Green, Green, Orange, Orange, Orange, Orange, Orange, Orange})
 
 	err = c.rotate(Up)
 	if err != nil {
@@ -54,11 +54,11 @@ func TestCubeDMoves(t *testing.T) {
 		t.Errorf("Rotation error: %s", err)
 	}
 
-	testFace(t, c.faces[down], [9]color{yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow})
-	testFace(t, c.faces[front], [9]color{green, green, green, green, green, green, orange, orange, orange})
-	testFace(t, c.faces[right], [9]color{red, red, red, red, red, red, green, green, green})
-	testFace(t, c.faces[back], [9]color{blue, blue, blue, blue, blue, blue, red, red, red})
-	testFace(t, c.faces[left], [9]color{orange, orange, orange, orange, orange, orange, blue, blue, blue})
+	testFace(t, c.Faces[DOWN], [9]color{Yellow, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow, Yellow})
+	testFace(t, c.Faces[FRONT], [9]color{Green, Green, Green, Green, Green, Green, Orange, Orange, Orange})
+	testFace(t, c.Faces[RIGHT], [9]color{Red, Red, Red, Red, Red, Red, Green, Green, Green})
+	testFace(t, c.Faces[BACK], [9]color{Blue, Blue, Blue, Blue, Blue, Blue, Red, Red, Red})
+	testFace(t, c.Faces[LEFT], [9]color{Orange, Orange, Orange, Orange, Orange, Orange, Blue, Blue, Blue})
 
 	err = c.rotate(Dp)
 	if err != nil {

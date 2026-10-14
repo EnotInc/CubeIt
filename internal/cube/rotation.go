@@ -5,36 +5,36 @@ import "fmt"
 func (c *Cube) rotate(m Move) error {
 	switch m {
 	case U:
-		old := c.faces
-		c.faces[up] = matrixClockwise(old[up])
-		copy(c.faces[front][0:3], old[right][0:3])
-		copy(c.faces[right][0:3], old[back][0:3])
-		copy(c.faces[back][0:3], old[left][0:3])
-		copy(c.faces[left][0:3], old[front][0:3])
+		old := c.Faces
+		c.Faces[UP] = matrixClockwise(old[UP])
+		copy(c.Faces[FRONT][0:3], old[RIGHT][0:3])
+		copy(c.Faces[RIGHT][0:3], old[BACK][0:3])
+		copy(c.Faces[BACK][0:3], old[LEFT][0:3])
+		copy(c.Faces[LEFT][0:3], old[FRONT][0:3])
 
 	case Up:
-		old := c.faces
-		c.faces[up] = matrixCounterClockwise(old[up])
-		copy(c.faces[front][0:3], old[left][0:3])
-		copy(c.faces[left][0:3], old[back][0:3])
-		copy(c.faces[back][0:3], old[right][0:3])
-		copy(c.faces[right][0:3], old[front][0:3])
+		old := c.Faces
+		c.Faces[UP] = matrixCounterClockwise(old[UP])
+		copy(c.Faces[FRONT][0:3], old[LEFT][0:3])
+		copy(c.Faces[LEFT][0:3], old[BACK][0:3])
+		copy(c.Faces[BACK][0:3], old[RIGHT][0:3])
+		copy(c.Faces[RIGHT][0:3], old[FRONT][0:3])
 
 	case D:
-		old := c.faces
-		c.faces[down] = matrixClockwise(old[down])
-		copy(c.faces[front][6:9], old[left][6:9])
-		copy(c.faces[left][6:9], old[back][6:9])
-		copy(c.faces[back][6:9], old[right][6:9])
-		copy(c.faces[right][6:9], old[front][6:9])
+		old := c.Faces
+		c.Faces[DOWN] = matrixClockwise(old[DOWN])
+		copy(c.Faces[FRONT][6:9], old[LEFT][6:9])
+		copy(c.Faces[LEFT][6:9], old[BACK][6:9])
+		copy(c.Faces[BACK][6:9], old[RIGHT][6:9])
+		copy(c.Faces[RIGHT][6:9], old[FRONT][6:9])
 
 	case Dp:
-		old := c.faces
-		c.faces[down] = matrixCounterClockwise(old[down])
-		copy(c.faces[front][6:9], old[right][6:9])
-		copy(c.faces[right][6:9], old[back][6:9])
-		copy(c.faces[back][6:9], old[left][6:9])
-		copy(c.faces[left][6:9], old[front][6:9])
+		old := c.Faces
+		c.Faces[DOWN] = matrixCounterClockwise(old[DOWN])
+		copy(c.Faces[FRONT][6:9], old[RIGHT][6:9])
+		copy(c.Faces[RIGHT][6:9], old[BACK][6:9])
+		copy(c.Faces[BACK][6:9], old[LEFT][6:9])
+		copy(c.Faces[LEFT][6:9], old[FRONT][6:9])
 
 	default:
 		return fmt.Errorf("Unknown move %+v", m)

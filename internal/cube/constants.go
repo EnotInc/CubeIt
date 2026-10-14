@@ -3,24 +3,24 @@ package cube
 type color string
 
 const (
-	yellow = "y"
-	white  = "w"
-	green  = "g"
-	orange = "o"
-	blue   = "b"
-	red    = "r"
+	Yellow = "y"
+	White  = "w"
+	Green  = "g"
+	Orange = "o"
+	Blue   = "b"
+	Red    = "r"
 )
 
 type dir int
 
 const (
 	_ dir = iota - 1
-	up
-	down
-	left
-	right
-	front
-	back
+	UP
+	DOWN
+	LEFT
+	RIGHT
+	FRONT
+	BACK
 )
 
 type Move string
